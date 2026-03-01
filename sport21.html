@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoverMarket | Germany Range Rover Listings</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:#f5f5f5;
+    color:#111;
+}
+
+/* HEADER */
+header{
+    background:#000;
+    color:#fff;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+header h1{
+    margin:0;
+    font-size:22px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:15px;
+    font-weight:500;
+}
+
+/* HERO */
+.hero{
+    background:url('https://i.imgur.com/j0d91eP.jpeg') center/cover no-repeat;
+    height:65vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+    position:relative;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+.hero a{
+    background:#000;
+    color:#fff;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+}
+
+/* SECTION */
+.section{
+    padding:40px 20px;
+}
+
+.section h3{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* CAR GRID */
+.cars{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:10px;
+    margin-bottom:15px;
+    background:#eee;
+    padding:5px;
+}
+
+.card-content h4{
+    margin:0 0 10px 0;
+    font-size:20px;
+}
+
+.card-content p{
+    margin:5px 0;
+}
+
+.price{
+    font-weight:700;
+    font-size:18px;
+    margin-top:8px;
+}
+
+.btn{
+    display:block;
+    margin-top:10px;
+    padding:12px;
+    text-align:center;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.call-btn{
+    background:#000;
+    color:#fff;
+}
+
+.buy-btn{
+    background:#ff4b5c;
+    color:#fff;
+}
+
+/* MODAL FORM */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background:rgba(0,0,0,0.6);
+}
+
+.modal-content{
+    background:#fff;
+    margin:50px auto;
+    padding:30px;
+    border-radius:10px;
+    max-width:500px;
+    position:relative;
+}
+
+.modal-content h3{
+    margin-top:0;
+}
+
+.modal-content label{
+    display:block;
+    margin-top:10px;
+    font-weight:500;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+.modal-content button{
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.submit-btn{
+    background:#000;
+    color:#fff;
+}
+
+.cancel-btn{
+    background:#ccc;
+    color:#111;
+}
+
+/* THUMBNAILS */
+.image-preview{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+.image-preview img{
+    width:80px;
+    height:60px;
+    object-fit:cover;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* FOOTER */
+footer{
+    background:#000;
+    color:#fff;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    font-size:14px;
+}
+
+@media(max-width:480px){
+    .hero h2{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>RoverMarket 🇩🇪</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Vehicles</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Exclusive Range Rover Listings From Germany</h2>
+        <p>Verified Dealers • Export Assistance • Worldwide Shipping</p>
+        <a href="#">Browse Vehicles</a>
+    </div>
+</section>
+
+<section class="section">
+    <h3>Available Range Rovers</h3>
+
+    <div class="cars">
+
+        <!-- SPORT HSE -->
+        <div class="card" data-images="https://i.imgur.com/Yx1gLDs.jpeg,https://i.imgur.com/iPswoZI.jpeg,https://i.imgur.com/aKNjsfo.jpeg">
+            <img src="https://i.imgur.com/Yx1gLDs.jpeg">
+            <div class="card-content">
+                <h4>Range Rover Sport HSE</h4>
+                <p>Year: 2022</p>
+                <p>Mileage: 28,000 km</p>
+                <p>Location: Berlin</p>
+                <div class="price">€89,500</div>
+
+                <a href="tel:0708328081" class="btn call-btn">Call Now</a>
+                <button class="btn buy-btn" onclick="openForm(this)">Buy</button>
+            </div>
+        </div>
+
+        <!-- AUTOBIOGRAPHY -->
+        <div class="card" data-images="https://i.imgur.com/TylCG9p.jpeg,https://i.imgur.com/VEFN474.jpeg">
+            <img src="https://i.imgur.com/TylCG9p.jpeg">
+            <div class="card-content">
+                <h4>Range Rover Autobiography</h4>
+                <p>Year: 2023</p>
+                <p>Mileage: 18,000 km</p>
+                <p>Location: Munich</p>
+                <div class="price">€115,000</div>
+
+                <a href="tel:0708328081" class="btn call-btn">Call Now</a>
+                <button class="btn buy-btn" onclick="openForm(this)">Buy</button>
+            </div>
+        </div>
+
+        <!-- VELAR -->
+        <div class="card" data-images="https://i.imgur.com/W1CAkRo.jpeg,https://i.imgur.com/yADAD2f.jpeg">
+            <img src="https://i.imgur.com/W1CAkRo.jpeg">
+            <div class="card-content">
+                <h4>Range Rover Velar</h4>
+                <p>Year: 2023</p>
+                <p>Mileage: 12,000 km</p>
+                <p>Location: Hamburg</p>
+                <div class="price">€76,000</div>
+
+                <a href="tel:0708328081" class="btn call-btn">Call Now</a>
+                <button class="btn buy-btn" onclick="openForm(this)">Buy</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MODAL FORM -->
+<div id="buyModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalCarTitle">Buy Car</h3>
+
+        <div class="image-preview" id="modalImagesPreview"></div>
+
+        <form id="buyForm">
+            <label>Name</label>
+            <input type="text" name="name" required>
+
+            <label>Nationality</label>
+            <input type="text" name="nationality" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Phone Number</label>
+            <input type="tel" name="phone" required>
+
+            <label>Mode of Payment</label>
+            <select name="payment" required>
+                <option value="">Select Payment Method</option>
+                <option>Bank Transfer</option>
+                <option>PayPal</option>
+                <option>Crypto</option>
+                <option>Other</option>
+            </select>
+
+            <label>Confirm Shipment</label>
+            <select name="shipment" required>
+                <option value="">Select Shipment Option</option>
+                <option>Yes, ship to me</option>
+                <option>No, I will pick up</option>
+            </select>
+
+            <label>Additional Notes</label>
+            <textarea name="notes" rows="3" placeholder="Any special requests or comments"></textarea>
+
+            <input type="hidden" id="modalCarInput">
+            <input type="hidden" id="modalPriceInput">
+            <input type="hidden" id="modalLocationInput">
+            <input type="hidden" id="modalImagesInput">
+
+            <button type="submit" class="submit-btn">Send WhatsApp</button>
+            <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    RoverMarket © 2026 | Germany Luxury Range Rover Marketplace<br>
+    Contact: 0708328081
+</footer>
+
+<script>
+function openForm(button){
+    const card = button.closest('.card');
+    const carName = card.querySelector('h4').innerText;
+    const price = card.querySelector('.price').innerText;
+    const location = card.querySelector('p:nth-of-type(3)').innerText;
+    const images = card.getAttribute('data-images');
+
+    document.getElementById('buyModal').style.display = 'block';
+    document.getElementById('modalCarTitle').innerText = `Buy ${carName}`;
+    document.getElementById('modalCarInput').value = carName;
+    document.getElementById('modalPriceInput').value = price;
+    document.getElementById('modalLocationInput').value = location;
+    document.getElementById('modalImagesInput').value = images;
+
+    // Show thumbnails
+    const preview = document.getElementById('modalImagesPreview');
+    preview.innerHTML = '';
+    images.split(',').forEach(img=>{
+        const imageEl = document.createElement('img');
+        imageEl.src = img;
+        preview.appendChild(imageEl);
+    });
+}
+
+function closeForm(){
+    document.getElementById('buyModal').style.display = 'none';
+}
+
+// WhatsApp send
+document.getElementById('buyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const car = document.getElementById('modalCarInput').value;
+    const price = document.getElementById('modalPriceInput').value;
+    const location = document.getElementById('modalLocationInput').value;
+    const images = document.getElementById('modalImagesInput').value;
+
+    const name = e.target.name.value;
+    const nationality = e.target.nationality.value;
+    const email = e.target.email.value;
+    const phone = e.target.phone.value;
+    const payment = e.target.payment.value;
+    const shipment = e.target.shipment.value;
+    const notes = e.target.notes.value;
+
+    let message = `New Order from RoverMarket:
+Name: ${name}
+Nationality: ${nationality}
+Email: ${email}
+Phone: ${phone}
+Car: ${car}
+Price: ${price}
+Location: ${location}
+Payment: ${payment}
+Shipment: ${shipment}
+Notes: ${notes}
+Car Images:`;
+
+    images.split(',').forEach((img, idx)=>{
+        message += `\n${idx+1}. ${img}`;
+    });
+
+    window.open(`https://wa.me/254708328081?text=${encodeURIComponent(message)}`);
+
+    closeForm();
+});
+</script>
+
+</body>
+</html>
